@@ -8671,9 +8671,10 @@ mod tests {
 
         // succeed sync with reduced value
         do_process_instruction(
-            sync_native(&program_id, &native_account_key,).unwrap(),
+            sync_native(&program_id, &native_account_key).unwrap(),
             vec![&mut native_account],
-        ).unwrap();
+        )
+        .unwrap();
         let account = Account::unpack_unchecked(&native_account.data).unwrap();
         assert_eq!(account.amount, new_lamports - 1);
     }
